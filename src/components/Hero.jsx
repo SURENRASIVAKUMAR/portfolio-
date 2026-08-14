@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import profileImg from '../assets/profile.png';
 
 function Hero() {
   return (
@@ -210,7 +211,7 @@ function Hero() {
               borderRadius: '23px',
               overflow: 'hidden',
               backgroundColor: '#0f172a',
-              backgroundImage: `url("${import.meta.env.BASE_URL}profile.png")`, // User's profile image
+              backgroundImage: `url(${profileImg})`, // User's profile image
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>

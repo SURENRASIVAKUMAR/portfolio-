@@ -68,7 +68,7 @@ function Hero() {
               marginBottom: '15px'
             }}
           >
-            SURENRA S
+            SURENR SIVAKUMAR
           </motion.h1>
 
           <motion.h2
@@ -84,7 +84,7 @@ function Hero() {
               paddingLeft: '20px'
             }}
           >
-            <strong style={{ color: '#ffffff', fontWeight: 700 }}>Final year CSE student</strong>
+            <strong style={{ color: '#ffffff', fontWeight: 700 }}>Full Stack developer</strong>
           </motion.h2>
 
           <motion.p

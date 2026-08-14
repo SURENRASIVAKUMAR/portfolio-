@@ -14,7 +14,7 @@ function Footer() {
     }}>
       <div style={{ fontWeight: '900', fontSize: '1.5rem', letterSpacing: '2px' }}>SURENRA.</div>
       <div style={{ fontSize: '0.9rem', color: '#aaaaaa' }}>
-        © {new Date().getFullYear()} by Surenra S. Designed with precision.
+        © {new Date().getFullYear()} by Surenr Sivakumar. Designed with precision.
       </div>
       <div style={{ display: 'flex', gap: '25px', fontWeight: 'bold' }}>
         <a href="https://linkedin.com/in/surenra-s-621136293" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', transition: 'color 0.3s ease' }} onMouseEnter={(e) => e.target.style.color = '#ccc'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>LINKEDIN</a>

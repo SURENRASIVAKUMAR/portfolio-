@@ -103,7 +103,7 @@ function Hero() {
             style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}
           >
             <a 
-              href="/SURENRA_S_Resume.pdf" 
+              href={`${import.meta.env.BASE_URL}SURENRA_S_Resume.pdf`} 
               download="SURENRA_S_Resume.pdf"
               style={{ 
                 display: 'inline-block',
@@ -210,7 +210,7 @@ function Hero() {
               borderRadius: '23px',
               overflow: 'hidden',
               backgroundColor: '#0f172a',
-              backgroundImage: 'url("/profile.png")', // User's profile image
+              backgroundImage: `url("${import.meta.env.BASE_URL}profile.png")`, // User's profile image
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>

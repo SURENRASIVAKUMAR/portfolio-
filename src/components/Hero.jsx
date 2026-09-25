@@ -15,28 +15,56 @@ function Hero() {
       padding: '120px 5% 60px'
     }}>
       
-      {/* Subtle Background Glows */}
+      {/* Animated Grid Background */}
       <div style={{
         position: 'absolute',
-        top: '-10%',
-        left: '-10%',
-        width: '500px',
-        height: '500px',
-        background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(5,8,20,0) 70%)',
-        filter: 'blur(50px)',
-        zIndex: 0
+        top: 0, left: 0, right: 0, bottom: 0,
+        backgroundImage: `
+          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+        `,
+        backgroundSize: '50px 50px',
+        zIndex: 0,
+        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)'
       }}></div>
 
-      <div style={{
-        position: 'absolute',
-        bottom: '-10%',
-        right: '-10%',
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, rgba(139,92,246,0.1) 0%, rgba(5,8,20,0) 70%)',
-        filter: 'blur(60px)',
-        zIndex: 0
-      }}></div>
+      {/* Animated Glowing Orbs */}
+      <motion.div 
+        animate={{ 
+          x: [0, 50, 0],
+          y: [0, 30, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          position: 'absolute',
+          top: '-10%', left: '-5%',
+          width: '50vw', height: '50vw',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(5,8,20,0) 70%)',
+          filter: 'blur(60px)',
+          zIndex: 0,
+          borderRadius: '50%'
+        }}
+      />
+      
+      <motion.div 
+        animate={{ 
+          x: [0, -50, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        style={{
+          position: 'absolute',
+          bottom: '-10%', right: '-5%',
+          width: '55vw', height: '55vw',
+          background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(5,8,20,0) 70%)',
+          filter: 'blur(80px)',
+          zIndex: 0,
+          borderRadius: '50%'
+        }}
+      />
 
       <div className="hero-container" style={{ 
         position: 'relative', 
@@ -170,14 +198,14 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             style={{ display: 'flex', gap: '20px', marginTop: '40px' }}
           >
-            <a href="https://github.com/SURENRA" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/SURENRASIVAKUMAR" target="_blank" rel="noopener noreferrer"
                style={{ color: '#94a3b8', transition: 'color 0.3s ease' }}
                onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
                onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
             </a>
-            <a href="https://linkedin.com/in/SURENRA" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/surenra-s-621136293/" target="_blank" rel="noopener noreferrer"
                style={{ color: '#94a3b8', transition: 'color 0.3s ease' }}
                onMouseEnter={(e) => e.currentTarget.style.color = '#3b82f6'}
                onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}
@@ -187,7 +215,7 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: Profile Image */}
+        {/* Right Column: Profile Image (Portrait) */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, x: 30 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -196,50 +224,49 @@ function Hero() {
         >
           <div style={{
             position: 'relative',
-            width: '100%',
-            maxWidth: '450px',
+            width: 'clamp(280px, 35vw, 400px)',
             aspectRatio: '3/4',
             borderRadius: '24px',
-            background: 'linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 100%)',
-            padding: '1px', // Border wrapper
-            boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)'
+            background: 'linear-gradient(135deg, rgba(59,130,246,0.6) 0%, rgba(139,92,246,0.6) 100%)',
+            padding: '4px',
+            boxShadow: '0 25px 50px -12px rgba(0,0,0,0.6)'
           }}>
             {/* The actual image container */}
             <div style={{
               width: '100%',
               height: '100%',
-              borderRadius: '23px',
+              borderRadius: '20px',
               overflow: 'hidden',
               backgroundColor: '#0f172a',
-              backgroundImage: `url(${profileImg})`, // User's profile image
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
             }}>
-              {/* Fallback overlay in case image is missing so it's not just a black square */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'linear-gradient(to top, rgba(5,8,20,0.8) 0%, rgba(5,8,20,0) 40%)',
-                zIndex: 1,
-                pointerEvents: 'none'
-              }}></div>
+              <img 
+                src={profileImg} 
+                alt="Profile" 
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                  display: 'block'
+                }}
+              />
             </div>
             
             {/* Decorative Element */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-20px',
-              left: '-20px',
-              width: '100px',
-              height: '100px',
-              border: '2px solid rgba(59, 130, 246, 0.5)',
-              borderRadius: '20px',
-              zIndex: -1,
-              transform: 'rotate(-10deg)'
-            }}></div>
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              style={{
+                position: 'absolute',
+                bottom: '-20px',
+                left: '-20px',
+                width: '120px',
+                height: '120px',
+                border: '2px dashed rgba(59, 130, 246, 0.4)',
+                borderRadius: '50%',
+                zIndex: -1,
+              }}
+            />
           </div>
         </motion.div>
       </div>
